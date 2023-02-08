@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MovieService } from './myservices/movie.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'movie-list';
+  student = "S00222915 Joe Walsh";
+  movies=[] as any;
+
+constructor(private movieService: MovieService) {}
+
+  ngOnInit() {
+    this.movies = this.movieService.getMovies();
+    console.log(this.movies);
+  }
 }
